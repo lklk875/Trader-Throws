@@ -1,0 +1,40 @@
+<!-- Graphics Example Code.  
+     index.html - The web page document containing the canvas (drawing surface).  It launches your JavaScript files. //-->
+<!DOCTYPE html> <html> <head> <meta charset="UTF-8"/>  </head>
+<body style="background: DarkGray">       <!-- Begin typing your web page here. //-->
+
+
+      <!-- The following code embeds a WebGL canvas panel, loads certain scene(s), and displays panel(s) of their controls. //-->
+<div id="main-canvas" class="canvas-widget"></div>
+<script type=module >      // ********************* THE ENTRY POINT OF YOUR WHOLE PROGRAM STARTS HERE ********************* 
+                           // Indicate which element on the page you want the Canvas_Widget to replace with a 3D WebGL area:
+  const element_to_replace = document.querySelector( "#main-canvas" );
+  import { Main_Scene, Additional_Scenes, Canvas_Widget } from './main-scene.js';  // Import the file that defines a scene.
+  const scenes = [ Main_Scene, ...Additional_Scenes ].map( scene => new scene() );    // This line creates your scene.
+  new Canvas_Widget( element_to_replace, scenes );
+</script>
+
+<div style="display: none">
+<audio id="bg1" controls> <source src="sound/BackGround1.mp3" type='audio/mp3'></audio>
+<audio id="bg2"controls> <source src="sound/BackGround2.mp3" type='audio/mp3'></audio>
+<audio id="bg3"controls> <source src="sound/BackGround3.mp3" type='audio/mp3'></audio>
+<audio id="challenge_mode1" controls> <source src="sound/ChallengeMode.mp3" type='audio/mp3'></audio>
+<audio id="challenge_mode2" controls> <source src="sound/ChallengeMode2.mp3" type='audio/mp3'></audio>
+<audio id="challenge_warning" controls> <source src="sound/ChallengeWarning.mp3" type='audio/mp3'></audio>
+<audio id="correct" controls> <source src="sound/correct1.mp3" type='audio/mp3'></audio>
+<audio id="fail" controls> <source src="sound/Fail.mp3" type='audio/mp3'></audio>
+<audio id="shoot" controls> <source src="sound/shoot1.mp3" type='audio/mp3'></audio>
+<audio id="gameoverm" controls> <source src= "sound/GameOver.mp3" type='audio/mp3'></audio>
+<audio id="timecount"controls> <source src="sound/TimeCount.mp3" type='audio/mp3'></audio>
+<audio id="timeover" controls> <source src="sound/timeover.wav" type='audio/wav'></audio>
+<audio id="win" controls> <source src="sound/win.mp3" type='audio/mp3'></audio>
+<audio id="endgame" controls> <source src="sound/EndGame.mp3" type='audio/mp3'></audio>
+</div>
+
+
+<table>
+<tr><td id='score'></td><td id='life'></td></tr>
+</table>
+
+</body></html>
+
